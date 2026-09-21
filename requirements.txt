@@ -1,1 +1,6 @@
+streamlit
 pyodbc
+pandas
+plotly
+streamlit-autorefresh
+openpyxl
