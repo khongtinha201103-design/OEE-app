@@ -20,7 +20,7 @@ def load_data():
     # Use Streamlit Secrets or update string below securely
     conn = pyodbc.connect(
         "DRIVER={FreeTDS};"
-        f"SERVER={st.secrets.get('DB_SERVER', 'your_public_db_host_or_ip')};"
+        f"SERVER={st.secrets.get('DB_SERVER', '990-0002-015-VN\Siplace_2017ex')};"
         "PORT=1433;"
         "DATABASE=SiplaceOIS;"
         f"UID={st.secrets.get('DB_USER', 'sa')};"
