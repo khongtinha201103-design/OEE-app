@@ -15,13 +15,18 @@ st_autorefresh(interval=60000, key="refresh")
 # -----------------------------
 # 2. Load data from SQL Server
 # -----------------------------
-def load_data():
-    conn = pyodbc.connect(
-        'DRIVER={SQL Server};'
-        'SERVER=990-0002-015-VN\\Siplace_2017ex;'
-        'DATABASE=SiplaceOIS;'
-        'UID=sa;'
-        'PWD=Siplace%Sa.1.Pwd;'
+import pyodbc
+
+# Option A: Using FreeTDS (Most reliable on Linux Streamlit Cloud)
+conn = pyodbc.connect(
+    'DRIVER={FreeTDS};'
+    'SERVER=your_public_db_host_or_ip;'
+    'PORT=1433;'
+    'DATABASE=SiplaceOIS;'
+    'UID=sa;'
+    'PWD=Siplace%Sa.1.Pwd;'
+    'TDS_Version=8.0;'
+)
     )
     query = "SELECT * FROM dbo.v_MachineTimelineReport"
     df = pd.read_sql(query, conn)
